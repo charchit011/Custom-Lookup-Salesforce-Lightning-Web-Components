@@ -1,0 +1,40 @@
+<template>
+    <lightning-card>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <div class="slds-combobox_container">
+                    <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click Lookup slds-is-open">
+                        <lightning-input onchange={setLookupValue} label="Enter something"></lightning-input>
+                        <div if:true={lookupvalue} id="listbox-id-1"
+                            class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+                            <ul class="slds-listbox slds-listbox_vertical">
+                                <template for:each={accList} for:item="acc">
+                                    <li role="presentation" key={acc.Id} class="slds-listbox__item">
+                                        <div class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                            role="option">
+                                            <span class="slds-media__figure slds-listbox__option-icon">
+                                                <span class="slds-icon_container slds-icon-standard-account">
+                                                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                                        <use
+                                                            xlink:href="/_slds/icons/standard-sprite/svg/symbols.svg#account">
+                                                        </use>
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                            <span class="slds-media__body">
+                                                <span
+                                                    class="slds-listbox__option-text slds-listbox__option-text_entity">{acc.Name}</span>
+                                                <span
+                                                    class="slds-listbox__option-meta slds-listbox__option-meta_entity">{acc.AnnualRevenue}</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
